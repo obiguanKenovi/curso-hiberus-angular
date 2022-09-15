@@ -13,7 +13,7 @@ export class AlumnoDetalleComponent implements OnInit {
   alumno!:IAlumno;
   constructor(
     private  _activateRoute:ActivatedRoute,
-    public _listaAlumno:AlumnosService
+    private _listaAlumno:AlumnosService
   ) {
     this._activateRoute.params.subscribe(arg => {
 
