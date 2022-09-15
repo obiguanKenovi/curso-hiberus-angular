@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IAlumno } from '../../interfaces/alumno.interface';
+import { AlumnosService } from '../../services/alumnos.service';
 
 @Component({
   selector: 'app-alumno-detalle',
@@ -11,15 +12,21 @@ export class AlumnoDetalleComponent implements OnInit {
 
   alumno!:IAlumno;
   constructor(
-    private  _activateRoute:ActivatedRoute
+    private  _activateRoute:ActivatedRoute,
+    public _listaAlumno:AlumnosService
   ) {
-    this._activateRoute.queryParams.subscribe(arg => {
-      this.alumno={
-        comportamiento:arg['comportamiento'],
-        nombre:arg['nombre'],
-        apellido:arg['apellido'],
-        nota:arg['nota'],
-      }
+    this._activateRoute.params.subscribe(arg => {
+
+      let id = +arg['id'];
+      this.alumno = _listaAlumno.listAlumnos[id];
+
+      // this.alumno={
+      //   comportamiento:arg['comportamiento'],
+      //   nombre:arg['nombre'],
+      //   apellido:arg['apellido'],
+      //   nota:arg['nota'],
+      //   repetidor:null
+      // }
     });
     /*
     this.alumno={

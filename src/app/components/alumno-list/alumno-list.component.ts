@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlumnosService } from '../../services/alumnos.service';
 
 @Component({
   selector: 'app-alumno-list',
@@ -19,7 +20,9 @@ export class AlumnoListComponent implements OnInit {
   ]
 
 
-  constructor() { }
+  constructor(
+    public _listaAlumno:AlumnosService
+  ) { }
 
   ngOnInit(): void {
   }

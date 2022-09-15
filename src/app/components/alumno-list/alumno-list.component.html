@@ -3,13 +3,24 @@
 <h2>Lista de alumnos</h2>
 
 <ul>
-  <li *ngFor="let alumno of alumnos"
+  <li *ngFor="let alumno of _listaAlumno.listAlumnos; let i=index"
   ><a
-  [queryParams]="{nombre:alumno.nombre,apellido:alumno.apellido,nota:alumno.nota,comportamiento:alumno.comportamiento}"
-  routerLink="detalle-alumno">
+  routerLink="detalle-alumno/{{i}}">
   {{alumno.nombre}} - {{alumno.apellido}}
 </a>
 </li>
 </ul>
+
+<!-- <ul>
+  <li *ngFor="let alumno of _listaAlumno.listAlumnos; let i=index"
+  ><a
+  [queryParams]="{index:i,nombre:alumno.nombre,apellido:alumno.apellido,nota:alumno.nota,comportamiento:alumno.comportamiento}"
+  routerLink="detalle-alumno">
+  {{alumno.nombre}} - {{alumno.apellido}}
+</a>
+</li>
+</ul> -->
+
+
 
 
