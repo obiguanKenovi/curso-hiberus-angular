@@ -1,0 +1,15 @@
+
+
+<h2>Lista de alumnos</h2>
+
+<ul>
+  <li *ngFor="let alumno of alumnos"
+  ><a
+  [queryParams]="{nombre:alumno.nombre,apellido:alumno.apellido,nota:alumno.nota,comportamiento:alumno.comportamiento}"
+  routerLink="detalle-alumno">
+  {{alumno.nombre}} - {{alumno.apellido}}
+</a>
+</li>
+</ul>
+
+
